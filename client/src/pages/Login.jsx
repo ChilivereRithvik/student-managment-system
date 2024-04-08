@@ -26,7 +26,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/v1/user/login",
+        "https://studenthubserver.netlify.app/api/v1/user/login",
         { email, password },
         {
           withCredentials: true,

@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const fetctUser= async()=>{
     try{
-      const res= await axios.get("http://localhost:8080/api/v1/user/userapil/me",{
+      const res= await axios.get("https://studenthubserver.netlify.app/api/v1/user/userapil/me",{
         withCredentials:true
       })
       if(res.status===200){

@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try{
     const res =await axios
-      .get("http://localhost:8080/api/v1/user/userapil/logout", {
+      .get("https://studenthubserver.netlify.app/api/v1/user/userapil/logout", {
         withCredentials: true,
       })
       if(res.status===200){

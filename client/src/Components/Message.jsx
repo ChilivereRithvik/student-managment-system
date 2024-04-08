@@ -26,7 +26,7 @@ toast.error("Please fill all the fields");
     try {
       console.log("in try block");
     
-      const res=await axios.post("http://localhost:8080/api/v1/message/send", { firstName, lastName, email, phone, message }, { withCredentials: true, headers: { "Content-Type": "application/json" } });
+      const res=await axios.post("https://studenthubserver.netlify.app/api/v1/message/send", { firstName, lastName, email, phone, message }, { withCredentials: true, headers: { "Content-Type": "application/json" } });
 
     
       msg.success("Message Sent Successfully");

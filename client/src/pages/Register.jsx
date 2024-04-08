@@ -23,7 +23,7 @@ const Register = () => {
     try {
       const res= await axios
         .post(
-          "http://localhost:8080/api/v1/user/registration",
+          "https://studenthubserver.netlify.app/api/v1/user/registration",
           { firstName, lastName, email, phone, password },
           {
             withCredentials: true,

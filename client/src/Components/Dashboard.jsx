@@ -10,7 +10,7 @@ function Dashboard() {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/v1/user/userapil/me",
+          "https://studenthubserver.netlify.app/api/v1/user/userapil/me",
           {
             withCredentials: true,
           }
