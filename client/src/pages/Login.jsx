@@ -9,7 +9,6 @@ import { message as msg } from "antd";
 
 const Login = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -26,7 +25,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://studenthubserver.netlify.app/api/v1/user/login",
+        "http://localhost:8080/api/v1/user/login",
         { email, password },
         {
           withCredentials: true,
@@ -34,6 +33,8 @@ const Login = () => {
         }
       );
       msg.success("Login Successfull");
+     
+      localStorage.setItem("token", res.data.token);
       setIsAuthenticated(true);
       navigateTo("/");
 

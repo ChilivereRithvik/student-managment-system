@@ -9,16 +9,20 @@ import { PiStudentDuotone } from "react-icons/pi";
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+const[istoken,setisToken]=useState();
+const tok=localStorage.getItem("token");
 
   const handleLogout = async () => {
     try{
     const res =await axios
-      .get("https://studenthubserver.netlify.app/api/v1/user/userapil/logout", {
+      .get("http://localhost:8080/api/v1/user/userapil/logout", {
         withCredentials: true,
       })
       if(res.status===200){
         message.success('Logout Successfully');
-        setIsAuthenticated(false);
+        
+        localStorage.removeItem("token");
+        localStorage.removeItem("Email");
       }
     }catch(err){
       console.log(err);
@@ -52,9 +56,20 @@ const Navbar = () => {
             <Link to={"/about"} onClick={() => setShow(!show)}>
               About Us
             </Link>
-            <Link to={"/dashboard"} onClick={() => setShow(!show)}>
-              Dashboard
-            </Link>
+            {isAuthenticated ? (
+              <Link to={"/profile"} onClick={() => setShow(!show)}>
+                Profile
+              </Link>
+             
+            ) : null}
+
+            {isAuthenticated ?  (
+              <Link to={"/dashboard"} onClick={() => setShow(!show)}>
+                Dashboard
+              </Link>
+            ):null}
+            
+            
           </div>
           {isAuthenticated ? (
             <button className="logoutBtn btn" onClick={handleLogout}>

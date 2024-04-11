@@ -6,13 +6,12 @@
   overflow-x: hidden;
   font-family: "Noto Sans", sans-serif;
 }
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
   display: none;
 }
 
 body {
   background: #e5e5e5;
-
 }
 .btn {
   padding: 7px 20px;
@@ -83,7 +82,6 @@ h6 {
   padding-top: 120px;
   padding-bottom: 120px;
   position: relative;
-
 }
 .hero .banner {
   flex: 1;
@@ -93,13 +91,11 @@ h6 {
   max-width: 650px;
 }
 .hero .banner h1 {
-
   word-spacing: 5px;
-  font-size:3rem;
+  font-size: 3rem;
 }
 .hero .banner p {
   color: #111;
-
 }
 .hero .banner span {
   position: absolute;
@@ -109,8 +105,7 @@ h6 {
   z-index: -1;
 }
 .hero .banner span img {
-  width:30rem;
-
+  width: 30rem;
 }
 .hero .banner:first-child {
   display: flex;
@@ -124,15 +119,13 @@ h6 {
   align-items: center;
   overflow-y: hidden;
 }
-.btngroup{
-  
+.btngroup {
   display: flex;
   gap: 20px;
 }
 
-
-.btngroup button{
-  background-color:#6C63FF;
+.btngroup button {
+  background-color: #6c63ff;
   color: #fff;
 
   border: none;
@@ -141,28 +134,25 @@ h6 {
   font-size: 15px;
   font-weight: 400;
   cursor: pointer;
-transition: all 0.3s ease-in-out;
-margin-top: 5px;
- 
-
+  transition: all 0.3s ease-in-out;
+  margin-top: 5px;
 }
-.btngroup button:hover{
-  background-color:#6C63FF;
+.btngroup button:hover {
+  background-color: #6c63ff;
   color: #fff;
   transform: translateY(-5px);
 }
-.dec{
-  font-size:3rem;
+.dec {
+  font-size: 3rem;
   font-weight: 900;
   cursor: pointer;
   margin-top: -10px;
 }
-.titl{
-  font-size:2rem;
+.titl {
+  font-size: 2rem;
 }
 .animated-image {
-  width:30rem;
-
+  width: 30rem;
 }
 
 @keyframes moveUpDown {
@@ -180,9 +170,8 @@ margin-top: 5px;
   .hero .banner h1 {
     font-size: 32px;
   }
-  .animated-image{
-    width:25rem;
-  
+  .animated-image {
+    width: 25rem;
   }
 }
 @media (max-width: 1085px) {
@@ -190,17 +179,14 @@ margin-top: 5px;
     right: -480px;
     top: -315px;
   }
- 
 }
 @media (max-width: 925px) {
   .hero {
     flex-direction: column;
   }
-.animated-image{
-    width:20rem;
-  
-  
-}
+  .animated-image {
+    width: 20rem;
+  }
   @media (max-width: 700px) {
     .hero {
       padding-bottom: 40px;
@@ -230,23 +216,23 @@ margin-top: 5px;
 .form-component form {
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
 }
 .form-component form div {
   display: flex;
-  gap:10px;
+  gap: 10px;
 }
 .form-component form input,
 .form-component form select,
 .form-component form textarea {
   flex: 1;
-  font-size:15px;
-  padding:10px;
+  font-size: 15px;
+  padding: 10px;
   border-radius: 7px;
   border: 1px solid gray;
 }
 .form-component button {
-  background-color:#6C63FF;
+  background-color: #6c63ff;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -254,8 +240,8 @@ margin-top: 5px;
   font-size: 20px;
   font-weight: 400;
   cursor: pointer;
-transition: all 0.3s ease-in-out;
-margin-top: 5px;
+  transition: all 0.3s ease-in-out;
+  margin-top: 5px;
 }
 .form-component .wrapper {
   display: flex;
@@ -317,7 +303,6 @@ margin-top: 5px;
   gap: 50px;
   padding-top: 40px;
   padding-bottom: 60px;
-
 }
 .biography .banner:first-child {
   flex: 1;
@@ -337,8 +322,8 @@ margin-top: 5px;
 }
 .biography .banner p:first-child {
   font-size: 24px;
-font-size:xx-large;
-font-weight: 700;
+  font-size: xx-large;
+  font-weight: 700;
 }
 @media (max-width: 925px) {
   .biography {
@@ -476,7 +461,7 @@ footer .content div:last-child div svg {
   left: 0;
 }
 .card .depart-name {
-margin-top: 20px;
+  margin-top: 20px;
   background: #e5e5e5;
   width: 320px;
   font-size: 24px;
@@ -503,7 +488,7 @@ nav {
   padding-top: 15px !important;
   padding-bottom: 10px !important;
   z-index: 2;
-background-color: #e5e5e5;
+  background-color: #e5e5e5;
 }
 nav .logo {
   flex: 1;
@@ -528,7 +513,6 @@ nav .navLinks .links a {
   color: #222;
   font-size: 20px;
   font-weight: 600;
- 
 }
 nav .navLinks .links a:hover {
   color: #000;
@@ -541,7 +525,7 @@ nav .btn {
   background: transparent;
   border: none;
   border-radius: 20px;
-  font-size:15px;
+  font-size: 15px;
   font-weight: 600;
   z-index: 2;
 }
@@ -562,12 +546,12 @@ nav svg {
     min-width: 100%;
     padding: 25px 20px 40px 20px;
   }
-  .con1con1{
+  .con1con1 {
     width: 100%;
-   }
-   .dashcon{
+  }
+  .dashcon {
     height: fit-content;
-   }
+  }
 }
 @media (max-width: 1100px) {
   nav {
@@ -589,9 +573,9 @@ nav svg {
     position: fixed;
     left: 0;
     height: 100%;
-    width:400px;
+    width: 400px;
     background: #e5e5e5;
-    top:53px;
+    top: 53px;
   }
   nav .showmenu {
     display: flex;
@@ -604,7 +588,7 @@ nav svg {
     left: -100%;
     width: 400px;
     height: 100%;
-    background:#e5e5e5;
+    background: #e5e5e5;
 
     top: 53px;
   }
@@ -618,92 +602,88 @@ nav svg {
   nav .logoutBtn {
     margin-top: 20px;
   }
-  .appli{
- 
+  .appli {
     margin-top: 100px;
     display: flex;
-     
-     flex-direction: column;
-   }
-   .con1{
-    width:40rem;
-   }
-   .con1con1{
+
+    flex-direction: column;
+  }
+  .con1 {
+    width: 40rem;
+  }
+  .con1con1 {
     width: 100%;
-   }
-   .dashcon{
+  }
+  .dashcon {
     height: fit-content;
-   }
+  }
 }
 @media (max-width: 800px) {
-  nav{
-    background-color:#e5e5e5;
+  nav {
+    background-color: #e5e5e5;
   }
   nav .showmenu {
     width: 96vw;
   }
-  .appli{
+  .appli {
     margin-top: 100px;
     display: flex;
-     
-     flex-direction: column;
-   }
-   .con1{
-    width:40rem;
-   }
-   .con1con1{
-    width: 100%;
-   }
-   .dashcon{
-    height: fit-content;
-   }
 
+    flex-direction: column;
+  }
+  .con1 {
+    width: 40rem;
+  }
+  .con1con1 {
+    width: 100%;
+  }
+  .dashcon {
+    height: fit-content;
+  }
 }
 @media (max-width: 650px) {
-  nav{
-    background-color:#e5e5e5;
+  nav {
+    background-color: #e5e5e5;
   }
   nav .showmenu {
     margin: 0;
     width: 100%;
     border-radius: 0;
   }
-  .appli{
-
+  .appli {
     margin-top: 100px;
     display: flex;
-     
-     flex-direction: column;
-   }
-   .con1{
-    width:30rem;
-   }
-   .dashcon{
+
+    flex-direction: column;
+  }
+  .con1 {
+    width: 30rem;
+  }
+  .dashcon {
     height: fit-content;
-   }
+  }
 }
 @media (max-width: 555px) {
-  nav{
-    background-color:#e5e5e5;
+  nav {
+    background-color: #e5e5e5;
   }
 
   nav .navLinks {
-    background:#e5e5e5;
+    background: #e5e5e5;
     width: 100%;
   }
-  .appli{
- 
+  .appli {
     margin-top: 100px;
     display: flex;
-     
-     flex-direction: column;
-   }
-   .con1{
-    width:25rem;
-   }
-   .dashcon{
+
+    flex-direction: column;
+  }
+  .con1 {
+    width: 25rem;
+  }
+  .dashcon {
     height: fit-content;
-   }
+  }
 }
 
 input[type="date"]:before {
@@ -716,17 +696,16 @@ input[type="time"]:before {
   color: #444;
   margin-right: 0.5em;
 }
-.logo-img{
+.logo-img {
   width: 150px;
-  font-weight:bold;
+  font-weight: bold;
   cursor: pointer;
 }
-footer .logo-img{
+footer .logo-img {
   width: 100%;
 }
 
-
-.dash{
+.dash {
   display: flex;
   gap: 20px;
   padding-top: 40px;
@@ -735,117 +714,134 @@ footer .logo-img{
   height: 100vh;
 }
 
-
-.logocon{
+.logocon {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.logocon .ico{
-  font-size:xx-large;
+.logocon .ico {
+  font-size: xx-large;
 }
 
-.appli{
+.appli {
   margin-top: 100px;
 }
-.appli .inp{
+.appli .inp {
   display: flex;
   flex-direction: column;
- 
- 
 }
 
-.dash{
+.dashboard {
   display: flex;
-
-  flex-direction: column;
-  height: 100vh;
-}
-.dashcon{
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin-top: 10px;
-  height:fit-content;
-}
-.con1{
-  display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
   gap: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height:fit-content;
-  max-width: 100%;
- 
-
-}
-.con1con1{
-  display:flex;
   flex-direction: column;
-  min-width:20rem;
-  max-width:30rem;
-  gap: 8px;
-  height: fit-content;
-
-
+  overflow: auto;
+  margin-top: 60px;
 }
-.con1con{
+hr{margin-top: -18px;
+}
+.dashsecond {
+  display: flex;
+  flex-direction: row;
+  background-color:#6b63ff78;
+  flex-wrap: wrap;
+gap: 10px;
+  left: 0;
+border-radius: 3px;
+padding: 10px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  overflow: auto;
+}
+.dashsecond img{
+  width:12rem;
+  border-radius: 3px;
+ 
+}
+.dashsecond p{
+  font-size: 1rem;
  
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-size:medium;
+  margin-bottom: 10px;
 
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: fit-content;
-  
 }
-
-.con1con1 button{
-  background-color:#6C63FF;
-  color: #fff;
+.dashboard span{
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.btn{
+  display: flex;
+  gap: 10px;
+margin-left: -20px;
+}
+.btn button{
+  background-color: #e5e5e5;
+  color:#222;
   border: none;
-  padding: 10px 10px;
+  padding: 10px 20px;
   border-radius: 20px;
   font-size: 15px;
   font-weight: 400;
-  margin-top: 10px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 5px;
+}
+.btn .primary{
+  background-color: #24a0ed;
+  color: #fff;
 
 }
-.con1con1 button:hover{
-  background-color:#6C63FF;
+.btn .orange{
+  background-color: #f5a623;
+  color: #fff;
+
+}
+.btn .danger{
+  background-color: #ff4d4d;
+  color: #fff;
+
+
+}
+
+.btn button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
   color: #fff;
   transform: translateY(-5px);
-  transition: all 0.3s ease-in-out;
 }
 
-.accur{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height:fit-content;
-}
-
-.cource{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height:fit-content;
+@media screen and (max-width: 800px) {
+  .dashsecond {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+  }
+  .dashsecond{
+    font-size: 1rem; }
+    .dashsecond img{
+      width:10rem;
+      border-radius: 3px;
+     
+    }
+    .dashsecond p{
+      font-size:1rem;
+     
+   
+    }
+    .dashboard span{
+      font-size: 1rem;
+      font-weight: 700;
+      
+    }
+    .btn{
+      display: flex;
+      gap: 10px;
+   
+    }
+    .btn button{
+      font-size: 12px;
+      
+    }
 }

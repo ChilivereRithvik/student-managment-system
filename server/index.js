@@ -23,7 +23,7 @@ cloudinary.v2.config({
 });
 
 // Connect to dbs
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb://localhost:27017")
     .then(() => {
         console.log('Connected to MONGO-DB database');
     })

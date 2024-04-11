@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Applycation from "./pages/Applycation";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Profile from './pages/Profile';
 import Navbar from "./Components/Navbar";
 import { useContext } from "react";
 import { Context } from "./main";
@@ -13,12 +14,13 @@ import axios from 'axios';
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer";
 
+
 function App() {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   useEffect(() => {
     const fetctUser= async()=>{
     try{
-      const res= await axios.get("https://studenthubserver.netlify.app/api/v1/user/userapil/me",{
+      const res= await axios.get("http://localhost:8080/api/v1/user/userapil/me",{
         withCredentials:true
       })
       if(res.status===200){
@@ -44,6 +46,7 @@ function App() {
           <Route path="/application" element={<Applycation />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />

@@ -10,9 +10,10 @@ function Dashboard() {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          "https://studenthubserver.netlify.app/api/v1/user/userapil/me",
+          "http://localhost:8080/api/v1/user/userapil/me",
           {
             withCredentials: true,
+            
           }
         );
         if (res.status === 200) {
@@ -39,35 +40,26 @@ function Dashboard() {
 console.log(firstName,lastName,email);
 
   return (
-    <div className="dash">
-      <div className="dashcon">
-        <div className="con1">
-          <div className="con1con1">
-            <h7>
-              Welcome <p>{firstName} {lastName}</p>
-            </h7>
-            <h7>Email:<p>{email}</p></h7>
-            <button>Report Issues</button>
-            <button>Change Password</button>
-            <button>Logout</button>
-          </div>
-          <div className="con1con">
-            <h7>Organization : <p>Vidya Jyothi Institute of Engineerion And Technology</p></h7>
-            <h7>ID No : <p>21911A85207410</p></h7>
-            <div className="accur">
-              <h7>Your Overall Accuracy</h7>
-              <input type="range"></input>
-            </div>
-            <div className="cource">
-              <p>Course Activity</p>
-              <h7>InProgress: <p>10/20</p></h7>
-              <h7>YetToStart <p>5/20</p></h7>
-            </div>
-          </div>
-        </div>
+    <div className="dashboard container">
+      <h1>Dashboard</h1>
+      <hr />
+     <div className="dashsecond container">
+      <img src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="profile" />
+      <div>
+      <p>
+        Welcome,<span>{firstName} {lastName}!</span>
+      </p>
+      <p>Email: 
+        <span>{email}</span></p>
+        <div className="btn">
+        <button className="primary">Report Issue</button>
+        <button className="orange">Reset Password</button>
+        <button className="danger">Logout</button>
       </div>
-      <div className="dashcon2"></div>
-      <div className="dashcon3"></div>
+      </div>
+      
+    </div>
+    
     </div>
   );
 }
