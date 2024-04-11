@@ -1,0 +1,129 @@
+
+
+.admindash{
+    margin-top: 60px;
+    padding: 0 10px;
+    
+  }
+  .admind{
+    display: flex;
+    gap: 15px;  
+    flex-direction: column;
+  justify-content: start;
+  
+    height: 100%;
+  }
+  .admind p{
+    font-size:2rem;
+    font-weight: 700;
+  
+  }
+  .admind hr{
+  
+    width: 100vw;
+  }
+  @media screen and (max-width:769px){
+    .admind p{
+      font-size:1.5rem;
+      font-weight: 700;
+    }
+  }
+  
+  .firstcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+    height: 100%;
+    padding: 10px;
+  }
+  
+  .firstcon{
+    background-color:#6c63ff;
+    padding: 10px;
+    border-radius: 3px;
+  color: #e5e5e5;
+  height:100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  
+  }
+  /* .admindashcontent{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: aqua;
+    height: 100%;
+  } */
+  
+.secondcontainer{
+    margin-top: 10px;
+}
+.secondcontainer h2{
+    font-size:1.5rem;
+}
+
+.middlecon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+.secondcontainer Table {
+    cursor: pointer;
+    height: 100%;
+}
+  @media screen and (max-width: 800px) {
+    .firstcontainer{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .firstcon{
+      background-color: #e5e5e5;
+      color: #222;
+      padding: 10px;
+      border-radius: 3px;
+      width: 100%;
+    flex-direction: column;
+    font-size:10rem;
+    
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    
+    }
+    .firstcon p{
+      font-size: 1.05rem;
+    }
+    .firstcon h1{
+      font-size: 1.5rem;
+    }
+    .middlecon {
+        font-size:0.75rem;
+        overflow-x: auto;
+        overflow-y: scroll;
+   
+      
+    }
+    .middlecon button{
+      font-size: 0.75rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      gap: 5px;
+      padding:10px 50px;
+      width:200px;
+      white-space:nowrap;
+  text-overflow: ellipsis;
+    }
+  
+  }
+  

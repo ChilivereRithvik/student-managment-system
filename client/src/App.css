@@ -496,6 +496,7 @@ nav .logo {
   display: flex;
   align-items: center;
   font-size: 1rem;
+ 
 }
 nav .navLinks {
   flex: 2;
@@ -845,34 +846,4 @@ margin-left: -20px;
       font-size: 12px;
       
     }
-}
-
-
-.admindash{
-  margin-top: 60px;
-  padding: 0 10px;
-  
-}
-.admind{
-  display: flex;
-  gap: 20px;  
-  flex-direction: column;
-justify-content: start;
-
-  height: 100%;
-}
-.admind p{
-  font-size:2rem;
-  font-weight: 700;
-
-}
-.admind hr{
-
-  width: 100vw;
-}
-@media screen and (max-width:769px){
-  .admind p{
-    font-size:1.5rem;
-    font-weight: 700;
-  }
 }
