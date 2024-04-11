@@ -13,5 +13,4 @@ router.get('/admin/getallapplications',isAdminAuthonticated,getallApplications);
 
 
 
-
 module.exports = router;

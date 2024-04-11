@@ -3,10 +3,10 @@ const { Application } = require("../Models/applicationSchema.js");
 const User = require("../Models/userSchema.js");
 
 const postApplication = async (req, res) => {
-  const { firstName, lastName, email,role, HodDepartment } = req.body;
+  const { firstName, lastName, email,role, HodDepartment,rollNumber } = req.body;
 
   // Check if all required fields are present
-  if (!firstName || !lastName || !email || !HodDepartment || !role) {
+  if (!firstName || !lastName || !email || !HodDepartment || !role || !rollNumber) {
     return res.status(400).json({
       success: false,
       message: "Please fill all the fields",
@@ -33,13 +33,15 @@ const postApplication = async (req, res) => {
       email,
       role,
       HodDepartment,
+      rollNumber,
       Id: user._id, // Store the user's ID in the application document
     });
     
-    //console.log(application);
+  //console.log(application);
 
     res.status(201).send("Application sent successfully");
   } catch (error) {
+    console.log(error);
     res.status(400).json({
         success:false,
         message:`Error while sending Message ${error.message}`
