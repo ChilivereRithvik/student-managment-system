@@ -5,6 +5,7 @@ function Dashboard() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [role, setrole] = useState("");
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -23,6 +24,7 @@ function Dashboard() {
             setFirstName(userData.firstName);
             setLastName(userData.lastName);
             setEmail(userData.email);
+            setrole(userData.role);
           } else {
             console.error("User data is incomplete:", userData);
           }
@@ -47,7 +49,7 @@ console.log(firstName,lastName,email);
       <img src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="profile" />
       <div>
       <p>
-        Welcome,<span>{firstName} {lastName}!</span>
+        Welcome,{role}<span>{firstName} {lastName}!</span>
       </p>
       <p>Email: 
         <span>{email}</span></p>

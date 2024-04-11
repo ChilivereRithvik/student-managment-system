@@ -1,40 +1,62 @@
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Applycation from "./pages/Applycation";
+import Application from "./pages/Applycation";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Profile from './pages/Profile';
+import Profile from "./pages/Profile";
 import Navbar from "./Components/Navbar";
-import { useContext } from "react";
 import { Context } from "./main";
-import {useEffect} from 'react';
-import axios from 'axios';
+import axios from "axios";
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer";
+import AdminDashboard from "./Components/Admindashboard";
 
+const App = () => {
+  const {
+    isAuthenticated,
+    setIsAuthenticated,
+    setUser,
+    isadminAuthenticated,
+    setIsAdminAuthenticated,
+    setAdmin
+  } = useContext(Context);
 
-function App() {
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   useEffect(() => {
-    const fetctUser= async()=>{
-    try{
-      const res= await axios.get("http://localhost:8080/api/v1/user/userapil/me",{
-        withCredentials:true
-      })
-      if(res.status===200){
-        setIsAuthenticated(true);
-        setUser(res.data);
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api/v1/user/userapil/me", { withCredentials: true });
+        if (res.status === 200) {
+          setIsAuthenticated(true);
+          setUser(res.data);
+        }
+      } catch (err) {
+        console.log(err);
+        setIsAuthenticated(false);
+        setUser({});
       }
-    }catch(err){
-      console.log(err);
-      setIsAuthenticated(false);
-      setUser({});
     };
-  };
-    fetctUser();
-}, [isAuthenticated]);
+    fetchUser();
+  }, [isAuthenticated, setIsAuthenticated, setUser]);
+
+  useEffect(() => {
+    const fetchAdmin = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api/v1/user/admin/me", { withCredentials: true });
+        if (res.status === 200) {
+          setIsAdminAuthenticated(true);
+          setAdmin(res.data);
+        }
+      } catch (err) {
+        console.log(err);
+        setIsAdminAuthenticated(false);
+        setAdmin({});
+      }
+    };
+    fetchAdmin();
+  }, [isadminAuthenticated, setIsAdminAuthenticated, setAdmin]);
 
   return (
     <>
@@ -43,17 +65,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/application" element={<Applycation />} />
+          <Route path="/application" element={<Application />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {isAuthenticated && <Route path="/dashboard" element={<Dashboard />} />}
+          {isadminAuthenticated && <Route path="/admindashboard" element={<AdminDashboard />} />}
         </Routes>
         <Footer />
       </Router>
-      
     </>
   );
-}
+};
 
 export default App;

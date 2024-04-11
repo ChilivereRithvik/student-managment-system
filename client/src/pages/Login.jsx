@@ -5,17 +5,15 @@ import { Context } from "../main";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { message as msg } from "antd";
 
-
-
 const Login = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated,isadminAuthenticated, setIsAdminAuthenticated } = useContext(Context);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigateTo = useNavigate();
   localStorage.setItem("Email", email);
-  
 
   const handleLogin = async (e) => {
     if (password !== confirmPassword) {
@@ -33,21 +31,26 @@ const Login = () => {
         }
       );
       msg.success("Login Successfull");
-     
-      localStorage.setItem("token", res.data.token);
-      setIsAuthenticated(true);
+
+   console.log(res.data.user.role)
+      if (res.data.user.role === "admin") {
+        setIsAdminAuthenticated(true);
+      } else {
+        setIsAuthenticated(true);
+      }
+
       navigateTo("/");
 
       setEmail("");
       setPassword("");
       setConfirmPassword("");
     } catch (error) {
-console.log(error);
+      console.log(error);
       msg.error("Login Failed");
     }
   };
 
-  if (isAuthenticated) {
+  if (isAuthenticated || isadminAuthenticated) {
     return <Navigate to={"/"} />;
   }
 

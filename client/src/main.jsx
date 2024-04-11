@@ -4,11 +4,19 @@ import App from "./App.jsx";
 
 export const Context = createContext({
   isAuthenticated: false,
+  setIsAuthenticated: () => {},
+  user: {},
+  setUser: () => {},
+  isadminAuthenticated: false,
+  setIsAdminAuthenticated: () => {},
+  admin: {},
 });
 
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isadminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [user, setUser] = useState({});
+  const [admin, setAdmin] = useState({});
 
   return (
     <Context.Provider
@@ -17,6 +25,10 @@ const AppWrapper = () => {
         setIsAuthenticated,
         user,
         setUser,
+        isadminAuthenticated,
+        setIsAdminAuthenticated,
+        admin,
+        setAdmin,
       }}
     >
       <App />

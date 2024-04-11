@@ -3,90 +3,63 @@ import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import axios from "axios";
 import { Context } from "../main";
-import {message} from 'antd';
+import { message } from "antd";
 import { PiStudentDuotone } from "react-icons/pi";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
-const[istoken,setisToken]=useState();
-const tok=localStorage.getItem("token");
+  const { isAuthenticated, setIsAuthenticated, isadminAuthenticated, setIsAdminAuthenticated } = useContext(Context);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
-    try{
-    const res =await axios
-      .get("http://localhost:8080/api/v1/user/userapil/logout", {
-        withCredentials: true,
-      })
-      if(res.status===200){
-        message.success('Logout Successfully');
-        
+    try {
+      let logoutEndpoint = isadminAuthenticated ? "admin/logout" : "userapil/logout";
+      const res = await axios.get(`http://localhost:8080/api/v1/user/${logoutEndpoint}`, { withCredentials: true });
+      if (res.status === 200) {
+        message.success("Logout Successfully");
         localStorage.removeItem("token");
         localStorage.removeItem("Email");
+        setIsAuthenticated(false);
+        setIsAdminAuthenticated(false);
       }
-    }catch(err){
+    } catch (err) {
       console.log(err);
-
-        message.error('Logout Failed');
+      message.error("Logout Failed");
     }
-      
   };
 
-  const navigateTo = useNavigate();
-
   const goToLogin = () => {
-    navigateTo("/login");
+    navigate("/login");
   };
 
   return (
-    <>
-      <nav className={"container"}>
-        <div className="logo">
+    <nav className="container">
+      <div className="logo">
         <PiStudentDuotone />
-          <p className="logo-img">StudentHub</p>
-        </div>
-        <div className={show ? "navLinks showmenu" : "navLinks"}>
-          <div className="links">
-            <Link to={"/"} onClick={() => setShow(!show)}>
-              Home
-            </Link>
-            <Link to={"/application"} onClick={() => setShow(!show)}>
-              Application
-            </Link>
-            <Link to={"/about"} onClick={() => setShow(!show)}>
-              About Us
-            </Link>
-            {isAuthenticated ? (
-              <Link to={"/profile"} onClick={() => setShow(!show)}>
-                Profile
-              </Link>
-             
-            ) : null}
+        <p className="logo-img">StudentHub</p>
+      </div>
+      <div className={`navLinks ${show ? "showmenu" : ""}`}>
+        <div className="links">
+          <Link to="/" onClick={() => setShow(!show)}>Home</Link>
+          <Link to="/application" onClick={() => setShow(!show)}>Application</Link>
+          <Link to="/about" onClick={() => setShow(!show)}>About Us</Link>
 
-            {isAuthenticated ?  (
-              <Link to={"/dashboard"} onClick={() => setShow(!show)}>
-                Dashboard
-              </Link>
-            ):null}
-            
-            
-          </div>
-          {isAuthenticated ? (
-            <button className="logoutBtn btn" onClick={handleLogout}>
-              LOGOUT
-            </button>
-          ) : (
-            <button className="loginBtn btn" onClick={goToLogin}>
-              LOGIN
-            </button>
-          )}
+          {(isAuthenticated || isadminAuthenticated) && <Link to="/profile" onClick={() => setShow(!show)}>Profile</Link>}
+
+          {isAuthenticated && !isadminAuthenticated && <Link to="/dashboard" onClick={() => setShow(!show)}>Dashboard</Link>}
+          
+          {isadminAuthenticated && <Link to="/admindashboard" onClick={() => setShow(!show)}>Dashboard</Link>}
         </div>
-        <div className="hamburger" onClick={() => setShow(!show)}>
-          <GiHamburgerMenu />
-    
-        </div>
-      </nav>
-    </>
+        {(isAuthenticated || isadminAuthenticated) ? (
+          <button className="logoutBtn btn" onClick={handleLogout}>LOGOUT</button>
+        ) : (
+          <button className="loginBtn btn" onClick={goToLogin}>LOGIN</button>
+        )}
+      </div>
+      <div className="hamburger" onClick={() => setShow(!show)}>
+        <GiHamburgerMenu />
+      </div>
+    </nav>
   );
 };
 

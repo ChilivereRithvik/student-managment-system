@@ -12,6 +12,8 @@ const {
      addnewHod
     } = require('../Controller/userController.js');
 
+ //const {getallAdminDetails} =require('../Controller/adminController.js');   
+
 // Corrected the function name to registration
 userRouter.post('/registration', registration);
 
@@ -34,6 +36,8 @@ userRouter.get('/admin/logout',isAdminAuthonticated,logoutAdmin);
 userRouter.get('/userapil/logout',isUserAuthonticated,logoutUser);
 
 userRouter.post('/hod/addnewhod',isAdminAuthonticated,addnewHod);
+
+
 
 
 

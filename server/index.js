@@ -9,6 +9,11 @@ const messageRouter = require('./routes/messageRouter');
 const errorMiddleware = require('./Middlewares/errorMiddleware.js');
 const userRouter = require('./routes/userRouter.js');
 const applicationRouter = require('./routes/applicationRouter.js');
+// index.js
+
+// Import adminRouter with correct case
+const adminRouter = require('./routes/adminRouter.js');
+
 
 
 
@@ -23,7 +28,7 @@ cloudinary.v2.config({
 });
 
 // Connect to dbs
-mongoose.connect("mongodb://localhost:27017")
+mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         console.log('Connected to MONGO-DB database');
     })
@@ -52,6 +57,7 @@ app.use(fileUpload({
 app.use('/api/v1/message', messageRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/application', applicationRouter);
+app.use('/api/v1/adminroute',adminRouter);
 
 
 
