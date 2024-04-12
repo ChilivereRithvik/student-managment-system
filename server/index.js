@@ -41,7 +41,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: [""],
+    origin: ["FONTEND_URL"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
