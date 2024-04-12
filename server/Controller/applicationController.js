@@ -87,7 +87,8 @@ const updateapplicationstatus = async (req, res) => {
     const appApplication = await Application.findById(applicatid);
     const user = await User.findById(appApplication.Id);
     console.log("user Id", appApplication.Id);
-    console.log(appApplication);
+    console.log(appApplication.rollNumber);
+    const rollNumber=appApplication.rollNumber;
     // Check if the user exists
     if (!user) {
       return res.status(404).json({
@@ -113,7 +114,10 @@ const updateapplicationstatus = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(appApplication.Id, {
       HodDepartment,
       role,
+      rollNumber
     });
+
+    
 
     //console.log(updatedUser);
 

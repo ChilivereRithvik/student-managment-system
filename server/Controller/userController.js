@@ -284,23 +284,55 @@ const addnewHod = async (req, res, next) => {
 
 
 
-// const getallAdminDetails=async(req,res,next)=>{
-//   try{
-//       const admin=await User.find({role:"admin"});
-//       console.log(admin);
-//       res.status(200).json({
-//           success:true,
-//           admin
-//       })
-//   }catch(err){
-//       console.log(err);s
-//       res.status(500).json({
-//           success:false,
-//           message:"Server Error"
-//       })
-//   }
-// }
+const getallAdminDetails=async(req,res,next)=>{
+  try{
+      const admin=await User.find({role:"admin"});
+      //console.log(admin);
+      res.status(200).json({
+          success:true,
+          admin
+      })
+  }catch(err){
+      console.log(err);
+      res.status(500).json({
+          success:false,
+          message:"Server Error"
+      })
+  }
+}
 
+
+const getallHodDetails=async(req,res,next)=>{
+  try{
+      const hod=await User.find({role:"HOD"});
+      res.status(200).json({
+          success:true,
+          hod
+      })
+  }catch(err){
+      console.log(err);
+      res.status(500).json({
+          success:false,
+          message:"Server Error"
+      })
+  }
+}
+
+const getallStaffDetails=async(req,res,next)=>{
+  try{
+      const staff=await User.find({role:"staff"});
+      res.status(200).json({
+          success:true,
+          staff
+      })
+  }catch(err){
+      console.log(err);
+      res.status(500).json({
+          success:false,
+          message:"Server Error"
+      })
+  }
+}
 
 
 
@@ -314,5 +346,8 @@ module.exports = {
   logoutAdmin,
   logoutUser,
   addnewHod,
+  getallAdminDetails,
+  getallHodDetails,
+  getallStaffDetails
 
 }; // Correct function name in module.exports

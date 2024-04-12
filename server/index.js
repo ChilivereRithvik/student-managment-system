@@ -12,7 +12,7 @@ const applicationRouter = require('./routes/applicationRouter.js');
 // index.js
 
 // Import adminRouter with correct case
-const adminRouter = require('./routes/adminRouter.js');
+//const adminRouter = require('./routes/adminRouter.js');
 
 
 
@@ -57,7 +57,7 @@ app.use(fileUpload({
 app.use('/api/v1/message', messageRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/application', applicationRouter);
-app.use('/api/v1/adminroute',adminRouter);
+//app.use('/api/v1/adminroute',adminRouter);
 
 
 

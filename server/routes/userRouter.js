@@ -9,7 +9,10 @@ const {
      getAlluserDetails,
      logoutAdmin,
      logoutUser,
-     addnewHod
+     addnewHod,
+     getallAdminDetails,
+     getallHodDetails,
+     getallStaffDetails
     } = require('../Controller/userController.js');
 
  //const {getallAdminDetails} =require('../Controller/adminController.js');   
@@ -37,6 +40,11 @@ userRouter.get('/userapil/logout',isUserAuthonticated,logoutUser);
 
 userRouter.post('/hod/addnewhod',isAdminAuthonticated,addnewHod);
 
+userRouter.get('/admin/getalladmin',isAdminAuthonticated,getallAdminDetails);
+
+userRouter.get('/admin/getallhod',isAdminAuthonticated,getallHodDetails);
+
+userRouter.get('/admin/getallstaff',isAdminAuthonticated,getallStaffDetails);
 
 
 

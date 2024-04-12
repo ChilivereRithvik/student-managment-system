@@ -4,6 +4,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
+    rollNumber:{
+        type: String,
+        trim: true,
+    },
     firstName: {
         type: String,
         required: true,

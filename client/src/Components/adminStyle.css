@@ -141,7 +141,20 @@ border-radius:20px;
       white-space:nowrap;
   text-overflow: ellipsis;
     }
-  
+    .thirdcontainer{
+      display: flex;
+
+      align-items: center;
+      flex-direction: column;
+    
+    }
+    .thirdcontainer div{
+      display: flex;
+      width: 100%;
+   
+      flex-direction: column;
+    }
+   
   }
   
 /* adminStyle.css */
@@ -190,4 +203,16 @@ border-radius:20px;
 }
 .btn-success:hover{
   transform: translateY(-5px);
+}
+
+.thirdcontainer{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+
+}
+.thirdcontainer div p{
+  font-size:medium;
+
 }
