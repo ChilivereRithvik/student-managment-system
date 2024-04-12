@@ -13,6 +13,8 @@ import axios from "axios";
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer";
 import AdminDashboard from "./Components/Admindashboard";
+import AddNewAdmin from "./pages/Addnewadmin";
+
 
 const App = () => {
   const {
@@ -68,6 +70,7 @@ const App = () => {
           <Route path="/application" element={<Application />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/addnewadmin" element={<AddNewAdmin />} />
           <Route path="/profile" element={<Profile />} />
           {isAuthenticated && <Route path="/dashboard" element={<Dashboard />} />}
           {isadminAuthenticated && <Route path="/admindashboard" element={<AdminDashboard />} />}

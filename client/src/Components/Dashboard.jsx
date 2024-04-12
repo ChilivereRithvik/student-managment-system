@@ -19,7 +19,7 @@ function Dashboard() {
         );
         if (res.status === 200) {
           const userData = res.data.user; // Accessing nested user object
-          console.log("User data:", userData); // Log response data for debugging
+          //console.log("User data:", userData); // Log response data for debugging
           if (userData && userData.firstName && userData.lastName && userData.email) {
             setFirstName(userData.firstName);
             setLastName(userData.lastName);

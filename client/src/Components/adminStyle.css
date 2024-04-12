@@ -3,6 +3,7 @@
 .admindash{
     margin-top: 60px;
     padding: 0 10px;
+    overflow-x: auto;
     
   }
   .admind{
@@ -61,10 +62,22 @@
   } */
   
 .secondcontainer{
-    margin-top: 10px;
+    margin:15px 0;
+    overflow: auto;
+    background-color: #e5e5e5;
 }
 .secondcontainer h2{
     font-size:1.5rem;
+    font-weight: 700;
+}
+.d-flex{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+border-radius:20px;
+
+    text-align: center;
+    overflow: auto;
 }
 
 .middlecon{
@@ -76,6 +89,10 @@
 .secondcontainer Table {
     cursor: pointer;
     height: 100%;
+ overflow: auto;
+ width: 100vw;
+
+
 }
   @media screen and (max-width: 800px) {
     .firstcontainer{
@@ -127,3 +144,50 @@
   
   }
   
+/* adminStyle.css */
+
+.admindashcontent {
+  overflow-x: auto; /* Enable horizontal scrolling for the table */
+}
+
+.ant-table-cell {
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Adjust column widths as needed */
+.ant-table-thead th {
+  min-width:150px; /* Set a minimum width for each column */
+}
+
+.btngroup{
+  
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 5px;
+
+}
+
+
+.btn-danger{
+  background-color:#fc2d26;
+  color: #e5e5e5;
+  transition: all 0.3s ease-in-out;
+  margin-top: 5px;
+
+}
+.btn-danger:hover{
+  transform: translateY(-5px);
+
+
+}
+.btn-success{
+  background-color:lightgreen;
+}
+.btn-success:hover{
+  transform: translateY(-5px);
+}

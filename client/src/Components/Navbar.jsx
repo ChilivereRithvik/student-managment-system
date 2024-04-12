@@ -6,6 +6,7 @@ import { Context } from "../main";
 import { message } from "antd";
 import { PiStudentDuotone } from "react-icons/pi";
 
+
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const { isAuthenticated, setIsAuthenticated, isadminAuthenticated, setIsAdminAuthenticated } = useContext(Context);
@@ -21,6 +22,8 @@ const Navbar = () => {
         localStorage.removeItem("Email");
         setIsAuthenticated(false);
         setIsAdminAuthenticated(false);
+        navigate("/");
+        
       }
     } catch (err) {
       console.log(err);

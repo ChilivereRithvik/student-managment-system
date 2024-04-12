@@ -105,9 +105,9 @@ const login = async (req, res, next) => {
 
 //add new admin by admin
 const addnewAddmin = async (req, res, next) => {
-  const { firstName, lastName, email, phone, nic, password } = req.body;
+  const { firstName, lastName, email, phone, password } = req.body;
 
-  if (!firstName || !lastName || !email || !phone || !nic || !password) {
+  if (!firstName || !lastName || !email || !phone || !password) {
     return res.status(400).json({
       success: false,
       message: "Please fill all the fields",
@@ -125,7 +125,6 @@ const addnewAddmin = async (req, res, next) => {
     lastName,
     email,
     phone,
-    nic,
     password,
     role: "admin",
   });
@@ -138,6 +137,11 @@ const addnewAddmin = async (req, res, next) => {
     newadmin,
   });
 };
+
+
+
+
+
 
 //------------------------------------------------------------------------------
 
@@ -159,6 +163,14 @@ const getAlluserDetails = async (req, res, next) => {
     user,
   });
 };
+
+
+
+
+
+
+
+
 
 //admin logout-----
 const logoutAdmin = async (req, res, next) => {

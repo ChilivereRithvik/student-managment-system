@@ -10,7 +10,7 @@ function Application() {
   const [HodDepartment, setHodDepartment] = useState('');
   const [rollNumber, setrollNumber] = useState('');
 
-  const roleSuggestions = ["HOD","Staff","Student"];
+  const roleSuggestions = ["HOD","staff","student"];
   const hodSuggestions = ["CSE","ECE","DS","IT","EEE","MECH","CIVIL"]; // Add your departments here
 
   const handleSubmit = async (e) => {

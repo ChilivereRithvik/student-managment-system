@@ -1,55 +1,117 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './adminStyle.css';
 import Numberanimation from './Numberanimation';
-import { Table } from 'antd';
+import { Table, message } from 'antd';
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 function Admindashboard() {
- 
+  const [applications, setApplications] = useState([]);
+
+const navigate = useNavigate();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api/v1/application/admin/getallapplications", { withCredentials: true });
+        if (res.status === 200) {
+          setApplications(res.data.appApplications);
+          setRole(res.data.appApplications.role);
+          setHodDepartment(res.data.appApplications.HodDepartment);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
+
   const columns = [
     {
-      title:"Roll Number",
-      dataIndex:"rollNumber"
+      title: "Roll Number",
+      dataIndex: "rollNumber"
     },
     {
-        title: 'First Name',
-        dataIndex: 'firstName',
+      title: 'First Name',
+      dataIndex: 'firstName',
     },
     {
       title: 'Last Name',
       dataIndex: 'lastName',
-  },
-    {
-        title: 'Email',
-        dataIndex: 'email'
-    },
-{
-  title:"Role",
-  dataIndex:"role"
-},
-{
-  title:"Department",
-  dataIndex:"department"
-},
-    {
-        title: 'Status',
-        dataIndex: 'status',
     },
     {
-        title: 'Actions',
-        dataIndex: 'actions',
-        render: (text, record) => (
-            <div className='d-flex'>
-                {record.status === 'pending' ? <button className='btn btn-success' onClick={() => handleAccountStatus(record, 'approved')}>Approve</button>
-                    : <button className='btn btn-danger' style={{ background: 'red', color: 'aliceblue' }}>Reject</button>}
-            </div>
-        )
+      title: 'Email',
+      dataIndex: 'email'
+    },
+    {
+      title: "Role",
+      dataIndex: "role"
+    },
+    {
+      title: "Department",
+      dataIndex: "HodDepartment"
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'actions',
+      render: (text, record) => (
+        <div className='action-buttons'>
+          {record.status === 'Reject' ? (
+            <button className='btngroup btn-success' onClick={() => handleAccountStatus(record, 'Approved')}>Approve</button>
+          ) : record.status === 'Pending' ? (
+            <button className='btngroup btn-success' onClick={() => handleAccountStatus(record, 'Approved')}>Approve</button>
+          ) : (
+            <button className='btngroup btn-danger' onClick={() => handleRejustStatus(record, 'Reject')}>Reject</button>
+          )}
+        </div>
+      )
     }
-];
+    
+  ];
+
+
+const handleAccountStatus = async (record, status) => {
+  try {
+    const { _id, HodDepartment, role } = record;
+    console.log(HodDepartment, role);
+    const response = await axios.post("http://localhost:8080/api/v1/application/admin/updateapplicationstatus", { status, applicatid: _id, HodDepartment, role }, { withCredentials: true });
+
+    if (response.status === 200) {
+      console.log("Status updated successfully");
+      message.success(response.data.message);
+      setApplications(prevState => prevState.map(application => application._id === _id ? { ...application, status } : application));
+    }
+  } catch (error) {
+    console.error("Error updating status:", error);
+  }
+}
+
+
+
+
+
+  const handleRejustStatus = async (record, status) => {
+    try {
+      const { _id, HodDepartment, role } = record;
+      const res = await axios.post("http://localhost:8080/api/v1/application/admin/updateapplicationstatus", { status, applicatid: _id, HodDepartment, role  }, { withCredentials: true });
+      if (res.status === 200) {
+        console.log("Status updated successfully");
+        message.success(res.data.message);
+        setApplications(prevState => prevState.map(application => application._id === record._id ? { ...application, status } : application));
+      }
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
+  }
 
   return (
     <div className="admindash">
       <div className="admind">
-        <p>Wellcome Admin</p>
+        <br />
+        <p>Welcome Admin</p>
         <hr />
       </div>
       <div className="admindashcontent">
@@ -57,7 +119,6 @@ function Admindashboard() {
           <div className="admindashcontent1 firstcon">
             <p>Total no of application</p>
             <Numberanimation number={56} duration={10} />
-         
           </div>
           <div className="admindashcontent2 firstcon">
             <p>Total no of students</p>
@@ -72,23 +133,25 @@ function Admindashboard() {
             <Numberanimation number={99} duration={10} />
           </div>
           <div className="admindashcontent5 firstcon">
-            <p>Total no of Orgnizations</p>
+            <p>Total no of Organizations</p>
             <Numberanimation number={50} duration={10} />
-            </div>
-        </div>
-<div className="middlecon container btngroup">
-<button>Add Course</button>
-<button>Add Admin</button>
-  <button>Add Orgnization</button>
-  <button>Add Student</button>
-  <button>Delete User</button>
-</div>
-        <div className="secondcontainer">
-          <h2>Active Applicationss</h2>
-          <Table columns={columns} />
           </div>
+        </div>
+        <div className="middlecon container btngroup">
+          <button>Add Course</button>
+          <button onClick={()=>navigate("/addnewadmin")}>Add Admin</button>
+          <button>Add Organization</button>
+          <button>Add Student</button>
+          <button>Delete User</button>
+        </div>
+        <div className="secondcontainer">
+          <h2>Active Applications</h2>
+          <br />
+          <Table columns={columns} dataSource={applications} scroll={{ x: 'min-content' }} />
+        </div>
       </div>
     </div>
+ 
   );
 }
 
