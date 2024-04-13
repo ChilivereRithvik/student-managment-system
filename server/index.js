@@ -41,7 +41,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: [process.env.FONTEND_URL, process.env.DASHBOARD_URL],
+    origin: [""],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
@@ -62,13 +62,13 @@ app.use('/api/v1/application', applicationRouter);
 
 
 
-
-
-
-
-
-
 app.use(errorMiddleware.errorMiddleware);
+
+app.get('/', (req, res) => {
+    res.send('Hello World');
+}
+);
+
 
 
 app.listen(process.env.PORT, () => {
