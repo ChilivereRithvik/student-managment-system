@@ -5,6 +5,7 @@ import axios from 'axios';
 function usegetallHods() {
     const [hod, setHod] = useState([]);
     const [totalhod, setTotalhod] = useState(0);
+    
 // Initialize totalAdmins with 0
 
     const fetchData = useCallback(async () => {

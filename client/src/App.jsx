@@ -14,7 +14,7 @@ import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer";
 import AdminDashboard from "./Components/Admindashboard";
 import AddNewAdmin from "./pages/Addnewadmin";
-
+import Updateprofile from "./pages/Updateprofile";
 
 const App = () => {
   const {
@@ -71,6 +71,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/addnewadmin" element={<AddNewAdmin />} />
+          <Route path="/updateProfile" element={<Updateprofile />} />
           <Route path="/profile" element={<Profile />} />
           {isAuthenticated && <Route path="/dashboard" element={<Dashboard />} />}
           {isadminAuthenticated && <Route path="/admindashboard" element={<AdminDashboard />} />}

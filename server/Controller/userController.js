@@ -12,7 +12,7 @@ const registration = async (req, res, next) => {
   //console.log(firstName, lastName, email, phone, nic, password, role, HodDepartment);
 
   // Check if all required fields are provided
-  if (!firstName || !lastName || !email || !phone  || !password) {
+  if (!firstName || !lastName || !email || !phone || !password) {
     return res.status(400).json({
       success: false,
       message: "Please fill all the fields",
@@ -93,7 +93,6 @@ const login = async (req, res, next) => {
     return res.status(400).json({
       success: false,
       message: "Invalid email or password",
-      
     });
   }
 
@@ -129,7 +128,7 @@ const addnewAddmin = async (req, res, next) => {
     role: "admin",
   });
 
-  console.log(newadmin);
+  //console.log(newadmin);
 
   return res.status(200).json({
     success: true,
@@ -137,11 +136,6 @@ const addnewAddmin = async (req, res, next) => {
     newadmin,
   });
 };
-
-
-
-
-
 
 //------------------------------------------------------------------------------
 
@@ -164,14 +158,6 @@ const getAlluserDetails = async (req, res, next) => {
   });
 };
 
-
-
-
-
-
-
-
-
 //admin logout-----
 const logoutAdmin = async (req, res, next) => {
   res
@@ -185,19 +171,23 @@ const logoutAdmin = async (req, res, next) => {
     });
 };
 
-
-
 //user logout----------
 const logoutUser = async (req, res, next) => {
   //console.log(res);
-  const tokenTypes = ['HOD', 'studentToken', 'userToken', 'staffToken','facultyToken'];
+  const tokenTypes = [
+    "HOD",
+    "studentToken",
+    "userToken",
+    "staffToken",
+    "facultyToken",
+  ];
 
-  for(const tock of tokenTypes){
+  for (const tock of tokenTypes) {
     res.clearCookie(tock);
     // console.log(tock);
   }
 
- return  res
+  return res
     .status(200)
     .cookie("userToken", "", {
       expires: new Date(Date.now()),
@@ -207,11 +197,6 @@ const logoutUser = async (req, res, next) => {
       message: "User logged out successfully",
     });
 };
-
-
-
-
-
 
 const addnewHod = async (req, res, next) => {
   if (!req.files || Object.keys(req.files).length === 0) {
@@ -226,17 +211,10 @@ const addnewHod = async (req, res, next) => {
     return res.status(400).json({
       success: false,
       message: "Please upload a valid image file",
-    })
+    });
   }
-  const {
-    firstName,
-    lastName,
-    email,
-    phone,
-    nic,
-    password,
-    HodDepartment
-  } = req.body;
+  const { firstName, lastName, email, phone, nic, password, HodDepartment } =
+    req.body;
   if (
     !firstName ||
     !lastName ||
@@ -292,61 +270,184 @@ const addnewHod = async (req, res, next) => {
   });
 };
 
-
-
-
-const getallAdminDetails=async(req,res,next)=>{
-  try{
-      const admin=await User.find({role:"admin"});
-      //console.log(admin);
-      res.status(200).json({
-          success:true,
-          admin
-      })
-  }catch(err){
-      console.log(err);
-      res.status(500).json({
-          success:false,
-          message:"Server Error"
-      })
+const getallAdminDetails = async (req, res, next) => {
+  try {
+    const admin = await User.find({ role: "admin" });
+    //console.log(admin);
+    res.status(200).json({
+      success: true,
+      admin,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
   }
-}
+};
 
-
-const getallHodDetails=async(req,res,next)=>{
-  try{
-      const hod=await User.find({role:"HOD"});
-      res.status(200).json({
-          success:true,
-          hod
-      })
-  }catch(err){
-      console.log(err);
-      res.status(500).json({
-          success:false,
-          message:"Server Error"
-      })
+const getallHodDetails = async (req, res, next) => {
+  try {
+    const hod = await User.find({ role: "HOD" });
+    res.status(200).json({
+      success: true,
+      hod,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
   }
-}
+};
 
-const getallStaffDetails=async(req,res,next)=>{
-  try{
-      const staff=await User.find({role:"staff"});
-      res.status(200).json({
-          success:true,
-          staff
-      })
-  }catch(err){
-      console.log(err);
-      res.status(500).json({
-          success:false,
-          message:"Server Error"
-      })
+const getallStaffDetails = async (req, res, next) => {
+  try {
+    const staff = await User.find({ role: "staff" });
+    res.status(200).json({
+      success: true,
+      staff,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
   }
-}
+};
 
+// Update user profile----------------------------------------------------------------------------------
+// const updateProfile = async (req, res, next) => {
+//   const {
+//     firstName,
+//     lastName,
+//     email,
+//     phone,
+//     role,
+//     socialprofiles,
+//     skills,
+//     bio,
+//   } = req.body;
+  
+//   if (
+//     !firstName ||
+//     !lastName ||
+//     !email ||
+//     !phone ||
+//     !role ||
+//     !socialprofiles ||
+//     !skills ||
+//     !bio
+//   ) {
+//     return res.status(400).json({
+//       success: false,
+//       message: "Please fill all the fields",
+//     });
+//   }
+//   try {
+//     const userExist = await User.findOne({ email });
+//     if(!userExist) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "User does not exist",
+//       });
+//     }
+//     const user = await User.findByIdAndUpdate(
+//       req.user._id,
+//       {
+//         firstName,
+//         lastName,
+//         email,
+//         phone,
+//         role,
+//         socialprofiles,
+//         skills,
+//         bio,
+//       },
+//       { new: true }
+//     );
+//     next();
+//     res.status(200).json({
+//       message: "Profile updated successfully",
+//       success: true,
+    
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({
+//       success: false,
+//       message: "Server Error",
+//     });
+//   }
+// };
 
+const updateProfile = async (req, res, next) => {
+  try {
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      role,
+      socialprofiles,
+      skills,
+      bio,
+    } = req.body;
+  
+    if (!firstName || !lastName || !email || !phone || !role || !socialprofiles || !skills || !bio) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill all the fields",
+      });
+    }
 
+    const userExist = await User.findOne({ email });
+    if (!userExist) {
+      return res.status(404).json({
+        success: false,
+        message: "User does not exist",
+      });
+    }
+
+    // Assuming `req.user._id` contains the user's ID
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        firstName,
+        lastName,
+        email,
+        phone,
+        role,
+        socialprofiles,
+        skills,
+        bio,
+      },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Profile updated successfully",
+      user,
+    });
+  } catch (err) {
+    console.error("Error updating profile:", err);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};
 
 module.exports = {
   registration,
@@ -359,6 +460,6 @@ module.exports = {
   addnewHod,
   getallAdminDetails,
   getallHodDetails,
-  getallStaffDetails
-
+  getallStaffDetails,
+  updateProfile
 }; // Correct function name in module.exports

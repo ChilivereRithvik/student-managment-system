@@ -16,6 +16,7 @@ const Navbar = () => {
     try {
       let logoutEndpoint = isadminAuthenticated ? "admin/logout" : "userapil/logout";
       const res = await axios.get(`http://localhost:8080/api/v1/user/${logoutEndpoint}`, { withCredentials: true });
+      
       if (res.status === 200) {
         message.success("Logout Successfully");
         localStorage.removeItem("token");

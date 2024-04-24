@@ -12,7 +12,8 @@ const {
      addnewHod,
      getallAdminDetails,
      getallHodDetails,
-     getallStaffDetails
+     getallStaffDetails,
+     updateProfile
     } = require('../Controller/userController.js');
 
  //const {getallAdminDetails} =require('../Controller/adminController.js');   
@@ -45,6 +46,9 @@ userRouter.get('/admin/getalladmin',isAdminAuthonticated,getallAdminDetails);
 userRouter.get('/admin/getallhod',isAdminAuthonticated,getallHodDetails);
 
 userRouter.get('/admin/getallstaff',isAdminAuthonticated,getallStaffDetails);
+
+userRouter.post('/userapil/updateprofile',isUserAuthonticated,updateProfile);
+
 
 
 

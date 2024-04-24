@@ -50,6 +50,21 @@ const userSchema = new mongoose.Schema({
         enum: ["user", "admin", "HOD", "staff", "student"],
         default: "user"
     },
+    socialprofiles: {
+        type: Array,
+        default: []
+    },
+
+    skills:{
+        type: Array,
+        default: []
+    
+    },
+    bio:{
+        type: String,
+        default: ""
+    },
+
     HodDepartment: {
         type: String,
         enum: ["CSE", "ECE", "DS", "IT", "EEE", "MECH", "CIVIL","Pending"],
