@@ -32,12 +32,15 @@ const Login = () => {
       );
       msg.success("Login Successfull");
 
-   console.log(res.data.user.role)
+   console.log(res.data)
       if (res.data.user.role === "admin") {
         setIsAdminAuthenticated(true);
       } else {
         setIsAuthenticated(true);
       }
+      
+
+
 
       navigateTo("/");
 

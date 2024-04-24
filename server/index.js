@@ -41,7 +41,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: [""],
+    origin: [process.env.FONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
@@ -64,10 +64,10 @@ app.use('/api/v1/application', applicationRouter);
 
 app.use(errorMiddleware.errorMiddleware);
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-}
-);
+// app.get('/', (req, res) => {
+//     res.send('Hello World');
+// }
+// );
 
 
 

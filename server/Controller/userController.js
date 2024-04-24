@@ -185,8 +185,18 @@ const logoutAdmin = async (req, res, next) => {
     });
 };
 
+
+
 //user logout----------
 const logoutUser = async (req, res, next) => {
+  //console.log(res);
+  const tokenTypes = ['HOD', 'studentToken', 'userToken', 'staffToken','facultyToken'];
+
+  for(const tock of tokenTypes){
+    res.clearCookie(tock);
+    // console.log(tock);
+  }
+
  return  res
     .status(200)
     .cookie("userToken", "", {
@@ -197,6 +207,7 @@ const logoutUser = async (req, res, next) => {
       message: "User logged out successfully",
     });
 };
+
 
 
 
