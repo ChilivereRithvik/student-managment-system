@@ -70,6 +70,11 @@ app.get('/', (req, res) => {
 }
 );
 
+module.exports =(req,res)=>{
+    res.status(200).json({message:"Hello from server"});
+}
+
+
 
 
 app.listen(process.env.PORT, () => {
