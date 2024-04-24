@@ -986,14 +986,13 @@ hr {
   display: flex;
   overflow-x: scroll;
   gap: 20px;
-width: fit-content;
+  width: fit-content;
   padding: 10px;
   font-size: large;
-
 }
 
 .list {
-  background-color:#6c63ff;
+  background-color: #6c63ff;
   border-radius: 3px;
   padding: 0 10px;
   width: 6rem;
@@ -1020,13 +1019,13 @@ width: fit-content;
   border-radius: 3px;
 }
 
-.profbio p{
+.profbio p {
   display: flex;
-  font-size:large;
-  
+  font-size: large;
+
   flex-direction: column;
 }
-.profbio p span{
+.profbio p span {
   font-weight: 400;
   font-size: medium;
 }
