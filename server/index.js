@@ -65,10 +65,10 @@ app.use('/api/v1/application', applicationRouter);
 
 app.use(errorMiddleware.errorMiddleware);
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World');
-// }
-// );
+app.get('/', (req, res) => {
+    res.send('Hello World');
+}
+);
 
 
 
