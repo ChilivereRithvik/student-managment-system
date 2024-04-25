@@ -65,11 +65,16 @@ app.use('/api/v1/application', applicationRouter);
 
 app.use(errorMiddleware.errorMiddleware);
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World');
-// }
-// );
+app.get('/', (req, res) => {
+    res.send('Hello World');
+}
+);
 
+
+
+// module.exports =(req,res)=>{
+//     res.status(200).json({message:"Hello from server"});
+// }
 
 
 app.listen(process.env.PORT, () => {
