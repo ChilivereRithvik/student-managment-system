@@ -5,18 +5,28 @@ import axios from "axios";
 import { Context } from "../main";
 import { message } from "antd";
 import { PiStudentDuotone } from "react-icons/pi";
-
-
+import { MdNotificationsActive } from "react-icons/md";
+import { MdNotificationAdd } from "react-icons/md";
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const { isAuthenticated, setIsAuthenticated, isadminAuthenticated, setIsAdminAuthenticated } = useContext(Context);
+  const {
+    isAuthenticated,
+    setIsAuthenticated,
+    isadminAuthenticated,
+    setIsAdminAuthenticated,
+  } = useContext(Context);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      let logoutEndpoint = isadminAuthenticated ? "admin/logout" : "userapil/logout";
-      const res = await axios.get(`http://localhost:8080/api/v1/user/${logoutEndpoint}`, { withCredentials: true });
-      
+      let logoutEndpoint = isadminAuthenticated
+        ? "admin/logout"
+        : "userapil/logout";
+      const res = await axios.get(
+        `http://localhost:8080/api/v1/user/${logoutEndpoint}`,
+        { withCredentials: true }
+      );
+
       if (res.status === 200) {
         message.success("Logout Successfully");
         localStorage.removeItem("token");
@@ -24,7 +34,6 @@ const Navbar = () => {
         setIsAuthenticated(false);
         setIsAdminAuthenticated(false);
         navigate("/");
-        
       }
     } catch (err) {
       console.log(err);
@@ -44,21 +53,48 @@ const Navbar = () => {
       </div>
       <div className={`navLinks ${show ? "showmenu" : ""}`}>
         <div className="links">
-          <Link to="/" onClick={() => setShow(!show)}>Home</Link>
-          <Link to="/application" onClick={() => setShow(!show)}>Application</Link>
-          <Link to="/about" onClick={() => setShow(!show)}>About Us</Link>
+          <Link to="/" onClick={() => setShow(!show)}>
+            Home
+          </Link>
+          <Link to="/application" onClick={() => setShow(!show)}>
+            Application
+          </Link>
+          <Link to="/about" onClick={() => setShow(!show)}>
+            About Us
+          </Link>
 
-          {(isAuthenticated || isadminAuthenticated) && <Link to="/profile" onClick={() => setShow(!show)}>Profile</Link>}
+          {(isAuthenticated || isadminAuthenticated) && (
+            <Link to="/profile" onClick={() => setShow(!show)}>
+              Profile
+            </Link>
+          )}
 
-          {isAuthenticated && !isadminAuthenticated && <Link to="/dashboard" onClick={() => setShow(!show)}>Dashboard</Link>}
-          
-          {isadminAuthenticated && <Link to="/admindashboard" onClick={() => setShow(!show)}>Dashboard</Link>}
+          {isAuthenticated && !isadminAuthenticated && (
+            <Link to="/dashboard" onClick={() => setShow(!show)}>
+              Dashboard
+            </Link>
+          )}
+
+          {isadminAuthenticated && (
+            <Link to="/admindashboard" onClick={() => setShow(!show)}>
+              Dashboard
+            </Link>
+          )}
         </div>
-        {(isAuthenticated || isadminAuthenticated) ? (
-          <button className="logoutBtn btn" onClick={handleLogout}>LOGOUT</button>
+
+        {isAuthenticated || isadminAuthenticated ? (
+          <button className="logoutBtn btn" onClick={handleLogout}>
+            LOGOUT
+          </button>
         ) : (
-          <button className="loginBtn btn" onClick={goToLogin}>LOGIN</button>
+          <button className="loginBtn btn" onClick={goToLogin}>
+            LOGIN
+          </button>
         )}
+      </div>
+      <div className="bell-con">
+      <MdNotificationsActive/>
+      <MdNotificationAdd />
       </div>
       <div className="hamburger" onClick={() => setShow(!show)}>
         <GiHamburgerMenu />

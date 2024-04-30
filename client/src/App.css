@@ -885,16 +885,15 @@ hr {
     font-size: samller;
     overflow: scroll;
   }
-  .people-list{
+  .people-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
- 
   }
   .people {
-    width:fit-content;
+    width: fit-content;
     border-radius: 3px;
   }
 }
@@ -1118,7 +1117,6 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 5px;
- 
 
   padding: 10px;
   border-radius: 3px;
@@ -1126,7 +1124,7 @@ hr {
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.people button{
+.people button {
   padding: 5px 10px;
   border-radius: 3px;
   outline: none;
@@ -1137,7 +1135,6 @@ hr {
   transition: all 0.3s ease-in-out;
 }
 
-
 .people button:hover {
   background-color: #02080c;
   color: var(--alicblue1);
@@ -1145,23 +1142,22 @@ hr {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.people p{
+.people p {
   font-size: 1rem;
   font-weight: 700;
 }
-.people span{
+.people span {
   font-size: 0.8rem;
   font-weight: 400;
 }
 
-.cardlist{
+.cardlist {
   display: flex;
-  padding:0  5px;
+  padding: 0 5px;
   flex-direction: column;
-
 }
 
-.btn-grp{
+.btn-grp {
   display: flex;
 
   flex-direction: column;
@@ -1169,22 +1165,20 @@ hr {
   height: fit-content;
 }
 
-.search-people{
-
- display: flex;
- flex-direction: column;
- gap: 10px;
- padding: 10px;
+.search-people {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
-.search-people input{
+.search-people input {
   padding: 5px;
   border-radius: 3px;
   border: none;
   outline: none;
   padding: 10px;
-  
 }
-.search-people button{
+.search-people button {
   padding: 5px 10px;
   border-radius: 3px;
   outline: none;
@@ -1195,4 +1189,97 @@ hr {
   transition: all 0.3s ease-in-out;
   width: fit-content;
   margin: auto;
+}
+
+/* Clubs---------------------------- */
+
+
+.clubs-container {
+  display: flex;
+  gap: 20px;
+
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.clubcard {
+  background-color: rgba(240, 248, 255, 0.345);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.clubcard p {
+  font-size: large;
+  font-weight: 600;
+}
+
+.clubcard ul {
+  font-size: small;
+}
+
+.clubcard img {
+  width: 300px;
+  margin: auto;
+  border-radius: 3px;
+}
+
+.clubcard a{
+  text-decoration: none;
+  font-size: small;
+}
+.clubcard button {
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #24a0ed;
+  color: var(--alicblue1);
+  transition: all 0.3s ease-in-out;
+ font-size: large;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.clubcard button:hover {
+  background-color: #02080c;
+  color: var(--alicblue1);
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.head{
+  display: flex;
+  justify-content: flex-start;
+  left: 0;
+  flex-direction:column;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.head hr{
+  width: 100%;
+  margin-top:1px;
+}
+.head p{
+  font-size: small;
+}
+
+.bell-con{
+  display: flex;
+  align-items: center;
+  position: relative;
+  float: right;
+}
+
+.bell{
+  margin: 0 10px;
+  background-color: #2ecc41;
 }

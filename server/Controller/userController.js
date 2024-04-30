@@ -320,69 +320,6 @@ const getallStaffDetails = async (req, res, next) => {
 };
 
 // Update user profile----------------------------------------------------------------------------------
-// const updateProfile = async (req, res, next) => {
-//   const {
-//     firstName,
-//     lastName,
-//     email,
-//     phone,
-//     role,
-//     socialprofiles,
-//     skills,
-//     bio,
-//   } = req.body;
-  
-//   if (
-//     !firstName ||
-//     !lastName ||
-//     !email ||
-//     !phone ||
-//     !role ||
-//     !socialprofiles ||
-//     !skills ||
-//     !bio
-//   ) {
-//     return res.status(400).json({
-//       success: false,
-//       message: "Please fill all the fields",
-//     });
-//   }
-//   try {
-//     const userExist = await User.findOne({ email });
-//     if(!userExist) {
-//       return res.status(400).json({
-//         success: false,
-//         message: "User does not exist",
-//       });
-//     }
-//     const user = await User.findByIdAndUpdate(
-//       req.user._id,
-//       {
-//         firstName,
-//         lastName,
-//         email,
-//         phone,
-//         role,
-//         socialprofiles,
-//         skills,
-//         bio,
-//       },
-//       { new: true }
-//     );
-//     next();
-//     res.status(200).json({
-//       message: "Profile updated successfully",
-//       success: true,
-    
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({
-//       success: false,
-//       message: "Server Error",
-//     });
-//   }
-// };
 
 const updateProfile = async (req, res, next) => {
   try {
@@ -448,6 +385,10 @@ const updateProfile = async (req, res, next) => {
     });
   }
 };
+
+
+
+
 
 module.exports = {
   registration,
