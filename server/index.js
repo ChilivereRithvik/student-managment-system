@@ -28,7 +28,7 @@ cloudinary.v2.config({
 });
 
 // Connect to dbs
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL || "mongodb+srv://Rohith:6qZK4yVPL5uB0fa5@cluster0.9tn183k.mongodb.net/Project-1?retryWrites=true&w=majority&appName=Cluster0" )
     .then(() => {
         console.log('Connected to MONGO-DB database');
     })
