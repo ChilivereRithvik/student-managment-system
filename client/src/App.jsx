@@ -15,6 +15,9 @@ import Footer from "./Components/Footer";
 import AdminDashboard from "./Components/Admindashboard";
 import AddNewAdmin from "./pages/Addnewadmin";
 import Updateprofile from "./pages/Updateprofile";
+import Conetcpeople from "./pages/Connectpeople";
+import Clubs from "./pages/Clubs";
+import Socialmedia from "./pages/Socialmedia";
 
 const App = () => {
   const {
@@ -70,6 +73,9 @@ const App = () => {
           <Route path="/application" element={<Application />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/connect" element={<Conetcpeople />} />
+          <Route path='/clubs' element={<Clubs />} />
+          <Route path="/social" element={<Socialmedia />} />
           <Route path="/addnewadmin" element={<AddNewAdmin />} />
           <Route path="/updateProfile" element={<Updateprofile />} />
           <Route path="/profile" element={<Profile />} />
