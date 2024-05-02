@@ -81,7 +81,7 @@ const getallApplications = async (req, res, next) => {
 // Update application status
 const updateapplicationstatus = async (req, res) => {
   const { status, applicatid, HodDepartment, role } = req.body;
-  console.log(HodDepartment, role);
+  //console.log(HodDepartment, role);
 
   try {
     const appApplication = await Application.findById(applicatid);

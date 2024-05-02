@@ -18,6 +18,7 @@ import Updateprofile from "./pages/Updateprofile";
 import Conetcpeople from "./pages/Connectpeople";
 import Clubs from "./pages/Clubs";
 import Socialmedia from "./pages/Socialmedia";
+import Createpost from "./pages/Creactepost";
 
 const App = () => {
   const {
@@ -76,6 +77,7 @@ const App = () => {
           <Route path="/connect" element={<Conetcpeople />} />
           <Route path='/clubs' element={<Clubs />} />
           <Route path="/social" element={<Socialmedia />} />
+          <Route path="/createpost" element={<Createpost />} />
           <Route path="/addnewadmin" element={<AddNewAdmin />} />
           <Route path="/updateProfile" element={<Updateprofile />} />
           <Route path="/profile" element={<Profile />} />

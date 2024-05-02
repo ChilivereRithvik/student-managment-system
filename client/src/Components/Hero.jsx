@@ -1,6 +1,7 @@
 import React from "react";
 import graph from "../assets/graph (1).png";
 
+
 function Hero({title,dec,imageUrl}) {
   return (
     <>

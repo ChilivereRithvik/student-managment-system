@@ -30,9 +30,26 @@ function Clubs() {
     fetchClubs();
   }, []);
 
- const handleJoinClub = async () => {
- 
-}
+  const handleJoinClub = async (clubId) => {
+    console.log("clubId: ", clubId);
+    try {
+      const res = await axios.post(
+        "http://localhost:8080/api/v1/user/userapil/joinclub",
+        JSON.stringify({ clubId }),
+
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      console.log("res: ", res);
+      console.log(clubId);
+      message.success(res.data.message);
+    } catch (err) {
+      console.log(err);
+      message.error(err.response.data.message);
+    }
+  };
 
   return (
     <>
@@ -68,7 +85,7 @@ function Clubs() {
                 </li>
               ))}
             </ul>
-            <button onClick={() => handleJoinClub()}>Join Club</button>
+            <button onClick={() => handleJoinClub(club._id)}>Join Club</button>
           </div>
         ))}
       </div>

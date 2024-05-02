@@ -2,6 +2,7 @@ const User = require("../Models/userSchema.js");
 const bcrypt = require("bcryptjs");
 const validator = require("validator");
 const generateToken = require("../utils/jwtToken.js");
+const jwt = require("jsonwebtoken");
 
 const cloudinary = require("cloudinary"); // Add missing import statement
 // Add missing import statement
@@ -198,6 +199,11 @@ const logoutUser = async (req, res, next) => {
     });
 };
 
+
+
+//add new hod by admin-----------------------------------------------------------------
+
+
 const addnewHod = async (req, res, next) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).json({
@@ -388,7 +394,30 @@ const updateProfile = async (req, res, next) => {
 
 
 
-
+const getperticularUser = async (req, res, next) => {
+  try {
+    console.log(req.params._id);
+   
+    const user = await User.findById(req.params._id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  }
+  catch (err) {
+    console.error("Error getting user:", err);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+}
 
 module.exports = {
   registration,
@@ -402,5 +431,6 @@ module.exports = {
   getallAdminDetails,
   getallHodDetails,
   getallStaffDetails,
-  updateProfile
+  updateProfile,
+  getperticularUser
 }; // Correct function name in module.exports

@@ -7,8 +7,10 @@ import { message } from "antd";
 import { PiStudentDuotone } from "react-icons/pi";
 import { MdNotificationsActive } from "react-icons/md";
 import { MdNotificationAdd } from "react-icons/md";
+
 const Navbar = () => {
   const [show, setShow] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false); // New state for dropdown
   const {
     isAuthenticated,
     setIsAuthenticated,
@@ -31,6 +33,7 @@ const Navbar = () => {
         message.success("Logout Successfully");
         localStorage.removeItem("token");
         localStorage.removeItem("Email");
+        localStorage.removeItem("userid");
         setIsAuthenticated(false);
         setIsAdminAuthenticated(false);
         navigate("/");
@@ -43,6 +46,10 @@ const Navbar = () => {
 
   const goToLogin = () => {
     navigate("/login");
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -80,6 +87,17 @@ const Navbar = () => {
               Dashboard
             </Link>
           )}
+
+          <div className="dropdown" onClick={toggleDropdown}>
+            <Link>More</Link>
+            {showDropdown && (
+              <div className="dropdown-content">
+                <Link to="/page1">Page 1</Link>
+                <Link to="/page2">Page 2</Link>
+                {/* Add more dropdown items as needed */}
+              </div>
+            )}
+          </div>
         </div>
 
         {isAuthenticated || isadminAuthenticated ? (
@@ -93,8 +111,8 @@ const Navbar = () => {
         )}
       </div>
       <div className="bell-con">
-      <MdNotificationsActive/>
-      <MdNotificationAdd />
+        <MdNotificationsActive />
+        <MdNotificationAdd />
       </div>
       <div className="hamburger" onClick={() => setShow(!show)}>
         <GiHamburgerMenu />

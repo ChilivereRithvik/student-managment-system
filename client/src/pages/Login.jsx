@@ -10,16 +10,13 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
 
   const navigateTo = useNavigate();
-  localStorage.setItem("Email", email);
+  //localStorage.setItem("Email", email);
 
   const handleLogin = async (e) => {
-    if (password !== confirmPassword) {
-      msg.error("Password and Confirm Password should be same");
-      return;
-    }
+   
     e.preventDefault();
     try {
       const res = await axios.post(
@@ -31,8 +28,9 @@ const Login = () => {
         }
       );
       msg.success("Login Successfull");
-
-   console.log(res.data)
+  //     console.log(res);
+  //  console.log(res.data)
+   localStorage.setItem("userid",res.data.user._id);
       if (res.data.user.role === "admin") {
         setIsAdminAuthenticated(true);
       } else {
@@ -46,7 +44,7 @@ const Login = () => {
 
       setEmail("");
       setPassword("");
-      setConfirmPassword("");
+      
     } catch (error) {
       console.log(error);
       msg.error("Login Failed");
@@ -79,12 +77,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+          
           <div
             style={{
               gap: "10px",

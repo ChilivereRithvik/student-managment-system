@@ -137,7 +137,7 @@ const joinclubrequest = async (req, res) => {
       if (isRequest) {
         return res.status(400).json({
           success: false,
-          message: "You have already sent a request to join this club"
+          message: "You have already sent a request"
         });
       }
   

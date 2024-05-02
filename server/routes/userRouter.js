@@ -18,6 +18,7 @@ const {
   getallHodDetails,
   getallStaffDetails,
   updateProfile,
+  getperticularUser
 } = require("../Controller/userController.js");
 
 const {
@@ -27,12 +28,12 @@ const {
   joinclubrequest,
 } = require("../Controller/clubController.js");
 
+const { uploadPost } = require("../Controller/mediaController.js");
+
 //const {getallAdminDetails} =require('../Controller/adminController.js');
 
-// Corrected the function name to registration
 userRouter.post("/registration", registration);
 
-// Added a new route for login
 userRouter.post("/login", login);
 //userRouter.get('/admin/addnew',addnewAddmin);
 
@@ -74,5 +75,14 @@ userRouter.post("/hod/deleteclub", isUserAuthonticated, deleteClubs);
 userRouter.post("/admin/deleteclub", isAdminAuthonticated, deleteClubs);
 
 userRouter.post("/userapil/joinclub", isUserAuthonticated, joinclubrequest);
+
+// Added a new route for uplodepost
+
+userRouter.post("/userapil/uplodepost", isUserAuthonticated, uploadPost);
+
+
+//get perticular user details
+userRouter.get("/userapil/getpresentuser/:_id", isUserAuthonticated, getperticularUser);
+
 
 module.exports = userRouter;

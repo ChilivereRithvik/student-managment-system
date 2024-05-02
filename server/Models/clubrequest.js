@@ -22,6 +22,11 @@ const joinclubSchema = new mongoose.Schema({
         required: true,
         default: []
     },
+    status: {
+        type: String,
+        enum: ["Approved", "Denied", "Pending"],
+        default: "Pending",
+      },
     }
 )
 
