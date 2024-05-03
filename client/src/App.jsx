@@ -84,7 +84,7 @@ const App = () => {
           {isAuthenticated && <Route path="/dashboard" element={<Dashboard />} />}
           {isadminAuthenticated && <Route path="/admindashboard" element={<AdminDashboard />} />}
         </Routes>
-        <Footer />
+   
       </Router>
     </>
   );

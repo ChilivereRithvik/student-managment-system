@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { message } from 'antd';
+import Footer from '../Components/Footer';
+
 
 function Application() {
   const [firstName, setFirstName] = useState('');
@@ -9,13 +11,14 @@ function Application() {
   const [role, setRole] = useState('');
   const [HodDepartment, setHodDepartment] = useState('');
   const [rollNumber, setrollNumber] = useState('');
-
+ 
   const roleSuggestions = ["HOD","staff","student"];
   const hodSuggestions = ["CSE","ECE","DS","IT","EEE","MECH","CIVIL"]; // Add your departments here
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+     
       const res = await axios.post("http://localhost:8080/api/v1/application/postApplication", {
         firstName,
         lastName,
@@ -26,7 +29,7 @@ function Application() {
       }, {
         withCredentials: true
       });
-
+      
       if (res.status === 201) {
         console.log('Application sent successfully');
         message.success('Application sent successfully');
@@ -40,6 +43,7 @@ function Application() {
     
 
     } catch (err) {
+     
       console.error(err);
       message.error('Something went wrong');
     }
@@ -108,6 +112,7 @@ function Application() {
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

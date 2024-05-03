@@ -28,7 +28,7 @@ const {
   joinclubrequest,
 } = require("../Controller/clubController.js");
 
-const { uploadPost } = require("../Controller/mediaController.js");
+const { uploadPost,getallposts } = require("../Controller/mediaController.js");
 
 //const {getallAdminDetails} =require('../Controller/adminController.js');
 
@@ -83,6 +83,9 @@ userRouter.post("/userapil/uplodepost", isUserAuthonticated, uploadPost);
 
 //get perticular user details
 userRouter.get("/userapil/getpresentuser/:_id", isUserAuthonticated, getperticularUser);
+
+//get all posts
+userRouter.get("/getallposts", getallposts);  
 
 
 module.exports = userRouter;

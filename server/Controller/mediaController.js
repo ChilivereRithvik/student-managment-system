@@ -51,4 +51,17 @@ const uploadPost = async (req, res, next) => {
   }
 };
 
-module.exports = { uploadPost };
+
+const getallposts = async(req,res,next)=>{
+  try{
+    const posts= await Media.find({});
+    res.status(200).json({message:"All posts",success:true,data:posts});
+  }catch(err){
+    console.error("Error getting posts:",err);
+    res.status(500).json({message:"Failed to get posts",success:false});
+  }
+
+}
+
+
+module.exports = { uploadPost,getallposts };

@@ -4,16 +4,14 @@ import { FaSearch } from "react-icons/fa";
 import { TbMessage } from "react-icons/tb";
 import { MdAddCircleOutline } from "react-icons/md";
 import { TiSocialInstagram } from "react-icons/ti";
-import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { BiMessageSquareDetail } from "react-icons/bi";
-import {useNavigate} from "react-router-dom";
-import {useEffect} from "react";
-import usegetCurrentuser from "../Hooks/usegetCurrentuser";
+import { useNavigate } from "react-router-dom";
+import usegetAllposts from "../Hooks/usegetAllposts";
 
 function Socialmedia() {
   const navigate = useNavigate();
-  // const {currentuser} = usegetCurrentuser([]);
-  // console.log(currentuser);
+  const { posts } = usegetAllposts();
 
   return (
     <div className="head head2">
@@ -32,7 +30,7 @@ function Socialmedia() {
               <FaSearch className="icon" />
               <span>Search</span>
             </li>
-            <li onClick={()=>navigate('/createpost')}>
+            <li onClick={() => navigate("/createpost")}>
               <MdAddCircleOutline className="icon" />
               <span>Post</span>
             </li>
@@ -43,24 +41,37 @@ function Socialmedia() {
           </ul>
         </div>
         <div className="media-secondcon">
-          <div className="media-card">
-            <div className="media-card-header">
-              <img
-                src="https://www.w3schools.com/howto/img_avatar.png"
-                alt=""
-              />
-              <span>ironman</span>
+          {posts.map((post) => (
+            <div className="media-card" key={post.id}>
+              <div className="media-card-header">
+                <img
+                  src="https://www.w3schools.com/howto/img_avatar.png"
+                  alt={post.username}
+                />
+                <span>{post.name}</span>
+                <button>Follow</button>
+              </div>
+              <img src={post.Avatar.url} alt={post.description} />
+              <span className="descr">
+                <span>Description</span>
+                <span className="com1">{post.description}</span>
+              </span>
+              <div className="likemessshare">
+                <span className="likes">
+                  <FaHeart />
+                  <span>{post.likes}</span>
+                </span>
+                <BiMessageSquareDetail />
+              </div>
+              <div>
+                <ul className="comments-list">
+                  {post.comments.map((comment, index) => (
+                    <d key={index}>{comment}</d>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <img
-              src="https://www.w3schools.com/howto/img_avatar.png"
-              alt="Avatar"
-            />
-            <div className="likemessshare">
-              <FaRegHeart />
-              <BiMessageSquareDetail />
-            </div>
-            <span className="comment">Lorem ipsum dolor sit Lorem ipsum dolor sit amet.</span>
-          </div>
+          ))}
         </div>
         <div className="media-thirdcon"></div>
       </div>

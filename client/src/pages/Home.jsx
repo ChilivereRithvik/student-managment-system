@@ -5,6 +5,7 @@ import Message from '../Components/Message'
 import Bio from '../Components/Bio'
 import heroimage from '../assets/hero1.svg';
 import AboutImg from '../assets/about.svg';
+import Footer from '../Components/Footer'
 
 function Home() {
   return (
@@ -13,7 +14,7 @@ function Home() {
 <Bio imageUrl={AboutImg}/>
 <Department />
 <Message />
-
+<Footer />a
 </>
   )
 }

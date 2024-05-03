@@ -6,6 +6,8 @@ import Linkedinimg from "../assets/Linkedin1.webp";
 import LeetCodeimg from "../assets/leet.webp";
 import HackerRankimg from "../assets/hackerrank1.png";
 
+
+
 function Profile() {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -23,17 +25,21 @@ function Profile() {
   const [leetcodeLink, setLeetcodeLink] = useState("");
   const [hackerrankLink, setHackerrankLink] = useState("");
 
+
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
+      
         const res = await axios.get(
           "http://localhost:8080/api/v1/user/userapil/me",
           {
             withCredentials: true,
           }
         );
+     
         if (res.status === 200) {
-          console.log(res.data);
+          //console.log(res.data);
           const userData = res.data.user;
           if (
             userData &&
@@ -55,12 +61,15 @@ function Profile() {
             setRollno(userData.rollNumber);
             setBio(userData.bio);
           } else {
+         
             console.error("User data is incomplete:", userData);
           }
         } else {
+     
           console.error("Failed to fetch user data");
         }
       } catch (err) {
+   
         console.error("Error fetching user data:", err);
       }
     };
