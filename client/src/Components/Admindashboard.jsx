@@ -243,6 +243,7 @@ const adminColumns = [
           <button>Add Organization</button>
           <button>Add Student</button>
           <button>Delete User</button>
+          <button>Add new Club</button>
         </div>
         <div className="secondcontainer">
           <h2>Active Applications</h2>

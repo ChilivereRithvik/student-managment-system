@@ -13,7 +13,7 @@ const Login = () => {
 
 
   const navigateTo = useNavigate();
-  //localStorage.setItem("Email", email);
+  localStorage.setItem("Email", email);
 
   const handleLogin = async (e) => {
    
@@ -36,10 +36,6 @@ const Login = () => {
       } else {
         setIsAuthenticated(true);
       }
-      
-
-
-
       navigateTo("/");
 
       setEmail("");

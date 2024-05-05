@@ -64,7 +64,7 @@
 .secondcontainer{
     margin:15px 0;
     overflow: auto;
-    background-color: #e5e5e5;
+    background-color:aliceblue;
 }
 .secondcontainer h2{
     font-size:1.5rem;
@@ -104,7 +104,7 @@ border-radius:20px;
       margin-top: 10px;
     }
     .firstcon{
-      background-color: #e5e5e5;
+      background-color:aliceblue;
       color: #222;
       padding: 10px;
       border-radius: 3px;

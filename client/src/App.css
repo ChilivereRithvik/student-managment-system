@@ -23,7 +23,7 @@
   display: none;
 }
 
-*{
+* {
   scroll-behavior: smooth;
 }
 *::-webkit-scroll-behavior {
@@ -1062,7 +1062,11 @@ hr {
   gap: 20px;
   flex-direction: column;
   overflow: auto;
-  margin-top: 60px;
+  margin-top: 80px;
+  padding: 10px 10px;
+
+  height: fit-content;
+  
 }
 
 .primary {
@@ -1085,12 +1089,123 @@ hr {
   align-items: center;
   overflow: auto;
   flex-wrap: wrap;
+  gap: 15px;
 }
 
+.dashboard-buttongroup button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 25px;
+  gap: 10px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+.dashboard-buttongroup button:hover{
+  background-color: #5fb6ec;
+
+  color:#243658;
+  transform:scale(1.1);
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-buttongroup .icon{
+  font-size:3rem;
+}
+
+
+.dash-firstcontainer {
+  
+background: rgb(124,154,238);
+background: linear-gradient(90deg, rgba(124,154,238,1) 0%, rgba(137,112,238,1) 100%);  color:#222;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 3px;
+  color: #f0f8ff;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;  width: 100%;
+  height: fit-content;
+}
+
+.dash-child p{
+  font-size: xx-large;
+}
+
+.dash-child h2{
+  font-size:3rem;
+}
+.dash-child2{
+ 
+  border-radius: 3px;
+  object-fit:contain;
+}
+
+.third-container{
+background-color: aliceblue;
+border-radius: 3px;
+/* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+width:100%;
+padding: 10px;
+display: flex;
+justify-content: space-around;
+height:fit-content;
+align-items: center;
+
+
+}
+
+.data{
+  background-color: aliceblue;
+  height: 15rem;
+  width:35rem;
+}
+.pichart{
+  background-color: aliceblue;
+  height: 15rem;
+  width:35rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+.third-child2{
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.third-child1{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
 @media screen and (max-width: 800px) {
   .dashboard-buttongroup {
     overflow-x: scroll;
   }
+  .dash-firstcontainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dash-child p{
+    font-size: x-large;
+  }
+  
+  .dash-child h2{
+    font-size:2rem;
+  }
+  .third-container{
+    flex-direction: column;
+    gap: 10px;
+  
+  }
+  .pichart{
+    height: 20rem;
+  }
+
 }
 
 /* connect-conatiner-------------------------------------------------------------------- */
@@ -1305,7 +1420,7 @@ hr {
   padding: 10px;
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position:fixed;
+  position: fixed;
 }
 
 .sidebar ul {
@@ -1359,7 +1474,6 @@ hr {
   margin-top: 0;
   flex-direction: column;
   gap: 20px;
-
 }
 .media-card {
   display: flex;
@@ -1399,7 +1513,7 @@ hr {
   transition: all 0.3s ease-in-out;
   border: 1px solid #111;
 
-  background-color:aliceblue;
+  background-color: aliceblue;
 }
 
 .media-card-header img {
@@ -1417,18 +1531,18 @@ hr {
 }
 
 .descr {
-  font-size:small;
+  font-size: small;
   padding: 0 10px;
   display: flex;
   flex-direction: column;
 }
 
-.descr span{
+.descr span {
   font-size: medium;
   margin-top: 10px;
 }
-.descr .com1{
-  font-size:small;
+.descr .com1 {
+  font-size: small;
   font-weight: 500;
   background-color: var(--alicblue1);
   width: fit-content;
@@ -1436,7 +1550,7 @@ hr {
 }
 
 @media screen and (max-width: 600px) {
-  .media-card{
+  .media-card {
     width: 100%;
   }
   .head2 {
@@ -1449,12 +1563,10 @@ hr {
     width: 100%;
     height: fit-content;
     position: absolute;
- 
+
     overflow: hidden;
     bottom: 0;
-    position:fixed;
-  
-
+    position: fixed;
   }
   .sidebar ul {
     display: flex;
@@ -1567,13 +1679,13 @@ hr {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.likes{
+.likes {
   color: red;
   display: flex;
   align-items: center;
-  gap:3px
+  gap: 3px;
 }
-.likes span{
+.likes span {
   font-size: small;
 }
 @media screen and (max-width: 900px) {
