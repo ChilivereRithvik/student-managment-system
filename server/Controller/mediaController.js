@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cloudinary = require("cloudinary");
-const Media = require("../models/mediaSchema.js");
+const Media = require("../Models/mediaSchema.js");
 const User = require("../Models/userSchema.js");
 
 const uploadPost = async (req, res, next) => {
