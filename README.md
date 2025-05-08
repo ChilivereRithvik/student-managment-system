@@ -48,3 +48,11 @@ Run both servers with
   npm run dev
 ```
 
+Run both servers with 
+```bash
+  Passowrds :
+user : 7410852963
+admin / staff / HOD : 741852963
+```
+
+
